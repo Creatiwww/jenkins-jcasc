@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  controller:
+    build:
+      context: ./controller
+    environment:
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+      CASC_JENKINS_CONFIG: /var/jenkins_home/casc.yaml
+      JENKINS_ADMIN_ID: admin
+      JENKINS_ADMIN_PASSWORD: pass
+      CASC_JENKINS_CONFIG: /var/jenkins_conf/
+      JENKINS_URL: http://127.0.0.1:8080/
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      # named_volume_name:/container/path
+      - jenkins-controller:/var/jenkins_home
+
+volumes:
+  jenkins-controller:
