@@ -10,16 +10,16 @@ services:
       JENKINS_ADMIN_ID: admin
       JENKINS_ADMIN_PASSWORD: pass
       CASC_JENKINS_CONFIG: /var/jenkins_conf/
-      JENKINS_URL: http://127.0.0.1:8080/
+      JENKINS_URL: 127.0.0.1:80
     ports:
-      - 8080:8080
+      - 80:8080
       - 50000:50000
     volumes:
       # named_volume_name:/container/path
       - jenkins-controller:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
   agent:
-   image: jenkins/ssh-agent:jdk11
+   image: jenkins/ssh-agent:latest
     # privileged: true
     # user: root
     # container_name: agent
