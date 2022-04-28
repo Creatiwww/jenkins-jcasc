@@ -40,7 +40,15 @@ security:
 unclassified:
   location:
     url: ${JENKINS_URL}
-
+jobs:
+  - file: /var/jobdsl/job.groovy
+  # - script: |
+  #     job('seed_job') {
+  #     steps {
+  #         shell('echo Hello World!')
+  #         }
+  #     }
+# - url: https://example.acme.org/job-dsl/testjob.groovy
 credentials:
   system:
     domainCredentials:
