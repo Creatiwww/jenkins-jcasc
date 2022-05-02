@@ -20,9 +20,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   agent:
    image: jenkins/ssh-agent:latest
-    # privileged: true
-    # user: root
-    # container_name: agent
    ports:
      - 22:22
    environment:
